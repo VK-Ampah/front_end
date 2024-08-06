@@ -58,13 +58,15 @@ export interface Address {
   }
 
   // SearchResults interface
-  export type UrlQueryParams = {
-    params: string
-    key: string
-    value: string | null
-    limitKey?: string
-    limitValue?: string
-  }
+  type UrlQueryParams = {
+    params: string;
+    key: string;
+    value: string;
+    limitKey?: string;
+    limitValue?: string;
+    pageKey?: string;
+    pageValue?: string;
+  };
   
   export type RemoveUrlQueryParams = {
     params: string

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { formUrlQuery } from '@/lib/utils';
 
@@ -13,16 +13,20 @@ type PaginationProps = {
 const Pagination = ({ page, totalPages, urlParamName = 'page', limit }: PaginationProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
 
   const onClick = (btnType: string) => {
     const pageValue = btnType === 'next' ? Number(page) + 1 : Number(page) - 1;
+    const query = searchParams.get('query') || '';
 
     const newUrl = formUrlQuery({
       params: location.search,
-      key: urlParamName,
-      value: pageValue.toString(),
+      key: 'query',
+      value: query,
       limitKey: 'limit',
       limitValue: limit.toString(),
+      pageKey: urlParamName,
+      pageValue: pageValue.toString(),
     });
 
     navigate(newUrl);

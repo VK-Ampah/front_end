@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Input } from '../ui/input';
 import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils';
-import Pagination  from './Pagination';
+// import Pagination  from './Pagination';
 // import { useDebounce } from '@/lib/hooks';
 
 const Search = ({ placeholder = "Search position..." }) => {
@@ -48,7 +48,6 @@ const Search = ({ placeholder = "Search position..." }) => {
         onChange={(e) => setQuery(e.target.value)}
         className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:text-black"
       />
-      <Pagination page = {1} totalPages = {100} limit = {10} />
     </div>
 
   );

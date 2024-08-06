@@ -31,7 +31,7 @@ import { UrlQueryParams, RemoveUrlQueryParams } from '@/constant/types'
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file)
 
-export function formUrlQuery({ params, key, value, limitKey, limitValue }: UrlQueryParams) {
+export function formUrlQuery({ params, key, value, limitKey, limitValue, pageKey, pageValue }: UrlQueryParams) {
   const currentUrl = qs.parse(params);
 
   currentUrl[key] = value;
@@ -40,10 +40,20 @@ export function formUrlQuery({ params, key, value, limitKey, limitValue }: UrlQu
     currentUrl[limitKey] = limitValue;
   }
 
+  if (pageKey && pageValue) {
+    currentUrl[pageKey] = pageValue;
+  }
+
+  const orderedQuery = {
+    query: currentUrl.query,
+    page: currentUrl.page,
+    limit: currentUrl.limit
+  };
+
   return qs.stringifyUrl(
     {
       url: window.location.pathname,
-      query: currentUrl,
+      query: orderedQuery,
     },
     { skipNull: true }
   );
