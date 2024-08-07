@@ -4,7 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 const headerLinks = [
   { route: "/", label: "Home" },
   { route: "/search", label: "Search" },
-  { route: "/contact", label: "Contact" },
+  { route: "/profiles", label: "Profiles" },
 ];
 
 const NavItems = () => {

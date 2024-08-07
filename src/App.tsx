@@ -7,7 +7,7 @@ import SearchComponent from './components/pages/SearchComponent';
 
 function App() {
   return (
-    <div className="bg-black">
+    <div className="bg-slate-900 max-h-screen">
       <BrowserRouter>
         <Header />
         <Routes>

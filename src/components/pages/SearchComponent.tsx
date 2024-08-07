@@ -25,11 +25,12 @@ const SearchComponent = () => {
   }, [location.search, searchParams]);
 
   return (
-    <div>
-      <h1>Search</h1>
-      <p>Search for players</p>
+    <div className="h-full">
+      <h1>Search for players</h1>
     <Search />
+    <div>
       {searchResults && <Collections searchResults={searchResults} />}
+    </div>
     </div>
   );
 }

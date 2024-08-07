@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation
+    // ,useSearchParams 
+} from 'react-router-dom';
 
 import { Input } from '../ui/input';
 import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils';
@@ -11,20 +13,35 @@ const Search = ({ placeholder = "Search position..." }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  
+
+
+
+//   const [searchParams] = useSearchParams();
+//   let page = searchParams.get("page") || "";
+//   let limit = searchParams.get("limit") || "";
+
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       let newUrl = "";
-
+      // check if search term is empty string collections search results shoudl be removed
       if (query) {
+        // check if query starts with d or D and then replace the value of query with defender
+        let newQuery = query;
+        if (newQuery.toLowerCase().startsWith("d")) {
+          newQuery = "defender";
+        }
         newUrl = formUrlQuery({
           params: location.search,
           key: "query",
-          value: query,
+          value: newQuery,
         });
+        
       } else {
         newUrl = removeKeysFromQuery({
           params: location.search,
-          keysToRemove: ["query"],
+          keysToRemove: ["query", "page", "limit"],
+
         });
       }
 
