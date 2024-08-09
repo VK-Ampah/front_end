@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { fetchResults } from '@/dataacess/searchPlayers';
 import Collections from '../shared/Collections';
