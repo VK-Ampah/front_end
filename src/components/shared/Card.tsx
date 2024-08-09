@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 import {PlayerDetails} from '@/constant/types'; // Import the missing module
 

@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { SearchResponse, PlayerDetails } from '@/constant/types';
 import Card from './Card';
 import Pagination from './Pagination';
