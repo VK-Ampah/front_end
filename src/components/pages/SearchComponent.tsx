@@ -25,7 +25,7 @@ const SearchComponent = () => {
   }, [location.search, searchParams]);
 
   return (
-    <div className="h-full">
+    <div className="min-h-screen">
       <h1>Search for players</h1>
     <Search />
     <div>

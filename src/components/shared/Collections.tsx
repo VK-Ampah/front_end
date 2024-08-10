@@ -12,7 +12,7 @@ const Collections = ({ searchResults }: CollectionsProps) => {
 
   return (
     <div>
-      <h1>Results</h1>
+      <h1 className='text-white text-xl'>Results</h1>
       {searchResults.results.length > 0 ? (
         searchResults.results.map((result: PlayerDetails, index: number) => (
           <div key={index}><Card player={result} /></div>
