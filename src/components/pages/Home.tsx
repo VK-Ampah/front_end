@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const response = await axios.get<Profile[]>('http://54.226.29.123:80/profile/all');
+        const response = await axios.get<Profile[]>('http://52.70.101.245:80/profile/all');
         setPlayers(response.data);
         setLoading(false);
       } catch (error) {
