@@ -8,15 +8,12 @@ import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils';
 // import Pagination  from './Pagination';
 // import { useDebounce } from '@/lib/hooks';
 
-const Search = ({ placeholder = "Search position..." }) => {
+const Search = ({ placeholder = "Search player position..." }) => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   
-
-
-
 //   const [searchParams] = useSearchParams();
 //   let page = searchParams.get("page") || "";
 //   let limit = searchParams.get("limit") || "";
@@ -30,6 +27,12 @@ const Search = ({ placeholder = "Search position..." }) => {
         let newQuery = query;
         if (newQuery.toLowerCase().startsWith("d")) {
           newQuery = "defender";
+        }
+        if (newQuery.toLowerCase().startsWith("f")) {
+          newQuery = "forward";
+        }
+        if (newQuery.toLowerCase().startsWith("g")) {
+          newQuery = "goalkeeper";
         }
         newUrl = formUrlQuery({
           params: location.search,
@@ -52,9 +55,9 @@ const Search = ({ placeholder = "Search position..." }) => {
   }, [query, location, navigate]);
 
   return (
-    <div className="flex-center min-h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+    <div className="flex flex-center min-h-[54px] w-full overflow-hidden rounded-full bg-gray-50 px-4 py-2 mb-2">
       <img
-        src="/assets/icons/search.svg"
+        src="src/assets/search.svg"
         alt="search"
         width={24}
         height={24}
@@ -63,7 +66,7 @@ const Search = ({ placeholder = "Search position..." }) => {
         type="text"
         placeholder={placeholder}
         onChange={(e) => setQuery(e.target.value)}
-        className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:text-black"
+        className="p-regular-16 border-0 bg-gray-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
       />
     </div>
 

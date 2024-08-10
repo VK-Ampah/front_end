@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+// import Footer from '../shared/Footer';
 
 import { Profile } from '@/constant/types.d';
 
@@ -26,7 +27,7 @@ const Home = () => {
     <div className="bg-gray-100">
       <header>
         <nav className="navbar">
-          {/* Navbar content here */}
+          {/* Navbar*/}
         </nav>
       </header>
       <main className="p-4 w-full">
@@ -170,9 +171,9 @@ const Home = () => {
           {/* Engagement Form or Social Media Links */}
         </section>
       </main>
-      <footer>
-        {/* Footer content here */}
-      </footer>
+      {/* <footer>
+        <Footer />
+      </footer> */}
     </div>
   );
 };
