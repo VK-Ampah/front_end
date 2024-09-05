@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const fetchResults = async (query: string, page: number, limit: number): Promise<SearchResponse> => {
   try {
-    const response = await axios.get<SearchResponse>(`http://52.70.101.245:80/profile/search/${query}`, {
+    const response = await axios.get<SearchResponse>(`http://localhost:8080/profile/search/${query}`, {
       params: {
         page: page,
         limit: limit
